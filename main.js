@@ -23,7 +23,7 @@ const player = new Player(maze, maze.playerPosition);
 const mazeContainer = document.getElementById('maze');
 
 const finishImage = document.createElement('img');
-finishImage.src = '/images/finish-flag.jpg';
+finishImage.src = 'images/finish-flag.jpg';
 finishImage.alt = 'Finish';
 finishImage.style.width = '30px';
 finishImage.style.height = '30px';
@@ -40,6 +40,10 @@ for (let i = 0; i < mazeHeight; i++) {
     if (mazeLayout[i][j] === 3) {
       cell.classList.add('player-cell');
       cell.appendChild(finishImage);
+    }
+
+    if (mazeLayout[i][j] === 2) {
+      cell.classList.add('player');
     }
 
     mazeContainer.appendChild(cell);

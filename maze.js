@@ -3,10 +3,10 @@ class Maze {
     this.width = width;
     this.height = height;
     this.layout = layout;
-    this.playerPosition = this.findPlayerPosition();
+    this.playerPosition = this.findInitialPlayerPosition();
   }
 
-  findPlayerPosition() {
+  findInitialPlayerPosition() {
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.layout[i][j] === 2) {
@@ -15,6 +15,10 @@ class Maze {
       }
     }
     return 0;
+  }
+
+  setPlayerPosition(position) {
+    this.playerPosition = position;
   }
 
   isValidMove(targetPosition) {

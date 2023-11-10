@@ -5,34 +5,34 @@ class Player {
   }
 
   moveUp() {
-    const targetPosition = this.position - mazeWidth;
-    if (maze.isValidMove(targetPosition)) {
+    const targetPosition = this.position - this.maze.width;
+    if (this.maze.isValidMove(targetPosition)) {
       this.movePlayer(targetPosition);
-      maze.checkWinCondition();
+      this.maze.checkWinCondition();
     }
   }
 
   moveDown() {
-    const targetPosition = this.position + mazeWidth;
-    if (maze.isValidMove(targetPosition)) {
+    const targetPosition = this.position + this.maze.width;
+    if (this.maze.isValidMove(targetPosition)) {
       this.movePlayer(targetPosition);
-      maze.checkWinCondition();
+      this.maze.checkWinCondition();
     }
   }
 
   moveLeft() {
     const targetPosition = this.position - 1;
-    if (maze.isValidMove(targetPosition)) {
+    if (this.maze.isValidMove(targetPosition)) {
       this.movePlayer(targetPosition);
-      maze.checkWinCondition();
+      this.maze.checkWinCondition();
     }
   }
 
   moveRight() {
     const targetPosition = this.position + 1;
-    if (maze.isValidMove(targetPosition)) {
+    if (this.maze.isValidMove(targetPosition)) {
       this.movePlayer(targetPosition);
-      maze.checkWinCondition();
+      this.maze.checkWinCondition();
     }
   }
 
@@ -41,6 +41,7 @@ class Player {
       .getElementsByClassName('cell')
       [this.position].classList.remove('player');
     this.position = targetPosition;
+    this.maze.setPlayerPosition(targetPosition);
     document
       .getElementsByClassName('cell')
       [this.position].classList.add('player');
